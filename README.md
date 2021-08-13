@@ -10,5 +10,5 @@ https://webhosting-final.herokuapp.com/registration
 https://webhosting-final.herokuapp.com/login
 
 
-//Admin account://  firstName: "Haytham", lastName: "Qushtom", email: "HQ@seneca.ca", phNum: 1233211234, Password: 123456, role: "admin" 
-//User account://  firstName: "John", lastName: "Wick", email: "johnwick@gmail.com", phNum: 1231231234, Password: 123456, role: "user" 
+Admin account:  firstName: "Haytham", lastName: "Qushtom", email: "HQ@seneca.ca", phNum: 1233211234, Password: 123456, role: "admin" 
+User account:  firstName: "John", lastName: "Wick", email: "johnwick@gmail.com", phNum: 1231231234, Password: 123456, role: "user" 
