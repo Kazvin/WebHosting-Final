@@ -193,7 +193,7 @@ app.get("/login", function(req, res) {
     if(req.session.user){
         res.redirect("/");
     } else {
-        res.render("login", {
+        res.render("Login", {
             layout:false
         })
     }
