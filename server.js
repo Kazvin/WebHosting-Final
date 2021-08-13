@@ -226,54 +226,58 @@ app.get("/editplan", function(req, res) {
 
 //admin path to update plans
 app.post("/newplan", uploadPic.single("picture"), (req, res) => {
-    if(req.body.hot == "true"){
-        for (let i = 0; i < planGroup.length; i++) {
-            planGroup[i].hot = false;
-          }
-    }
-
-    let errorMsg = "";
-    if (isNaN(req.body.planPrice)) {
-        errorMsg += "The price can only be a number. ";
-    }
-    if(req.body.planName == "" || req.body.planPrice == "" || req.body.planDesc == "") {
-        errorMsg += "All fields must be filled. ";
-    } 
-    if (req.body.planDesc > 50 || req.body.planName > 20) {
-        errorMsg += "The description or name is too big. ";
-    } 
-    if(errorMsg) {
-        console.log("Create plan errors: " + errorMsg);
-        res.render("editPlan", {err:errorMsg, layout:false});
-    } else {
-        if(req.session.user.role == "admin") {
-            var fileName = req.file.filename;
-            
-            console.log("Plan name: " + req.body.planName + " Plan price: " + req.body.planPrice  + " Plan Desc: " + req.body.planDesc + " Position: " + req.body.position + " Hot: " + req.body.hot); 
-            console.log("File uploaded. Name is: " + fileName);
-
-            if(req.body.position == 1) {
-                planGroup[0].name = req.body.planName;
-                planGroup[0].desc = req.body.planDesc;
-                planGroup[0].price = req.body.planPrice;
-                planGroup[0].hot = req.body.hot;
-            }else if (req.body.position == 2) {
-                planGroup[1].name = req.body.planName;
-                planGroup[1].desc = req.body.planDesc;
-                planGroup[1].price = req.body.planPrice;
-                planGroup[1].hot = req.body.hot;
-            }else if(req.body.position == 3) {
-                planGroup[2].name = req.body.planName;
-                planGroup[2].desc = req.body.planDesc;
-                planGroup[2].price = req.body.planPrice;
-                planGroup[2].hot = req.body.hot;
+    if(req.session.user.role == "admin") {
+        if(req.body.hot == "true"){
+            for (let i = 0; i < planGroup.length; i++) {
+                planGroup[i].hot = false;
             }
-            let msg = "Plan updated";
+        }
 
-            res.render("editplan", {msg:msg, layout:false})
-        } else
-        res.render("editplan", {err:"You are not an admin", layout:false});
-    }
+        let errorMsg = "";
+        if (isNaN(req.body.planPrice)) {
+            errorMsg += "The price can only be a number. ";
+        }
+        if(req.body.planName == "" || req.body.planPrice == "" || req.body.planDesc == "") {
+            errorMsg += "All fields must be filled. ";
+        } 
+        if (req.body.planDesc > 50 || req.body.planName > 20) {
+            errorMsg += "The description or name is too big. ";
+        } 
+        if(errorMsg) {
+            console.log("Create plan errors: " + errorMsg);
+            res.render("editPlan", {err:errorMsg, layout:false});
+        } else {
+            
+                var fileName = req.file.filename;
+                
+                console.log("Plan name: " + req.body.planName + " Plan price: " + req.body.planPrice  + " Plan Desc: " + req.body.planDesc + " Position: " + req.body.position + " Hot: " + req.body.hot); 
+                console.log("File uploaded. Name is: " + fileName);
+
+                if(req.body.position == 1) {
+                    planGroup[0].name = req.body.planName;
+                    planGroup[0].desc = req.body.planDesc;
+                    planGroup[0].price = req.body.planPrice;
+                    if(req.body.hot == "true")
+                        planGroup[0].hot = true;
+                }else if (req.body.position == 2) {
+                    planGroup[1].name = req.body.planName;
+                    planGroup[1].desc = req.body.planDesc;
+                    planGroup[1].price = true;
+                    if(req.body.hot == "true")
+                        planGroup[1].hot = req.body.hot;
+                }else if(req.body.position == 3) {
+                    planGroup[2].name = req.body.planName;
+                    planGroup[2].desc = req.body.planDesc;
+                    planGroup[2].price = req.body.planPrice;
+                    if(req.body.hot == "true")
+                        planGroup[2].hot = true;
+                }
+                let msg = "Plan updated";
+
+                res.render("editplan", {msg:msg, layout:false})
+            } 
+    } else
+    res.render("editplan", {err:"You are not an admin", layout:false});
 });
 
 
