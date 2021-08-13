@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+
+    {{>bootstrap}}
+</head>
+<body>
+
+<div style="background-image: url('background.jpeg'); height: 100vh; background-repeat: no-repeat; background-size: cover;">
+    
+    
+    
+    {{>header}}
+
+    {{>nav}}
+
+    <div class="text-center">            
+        <img class="img-fluid" style="width: 900px;" src="Web-Hosting-Servers.jpg" alt="Web-Hosting-Servers"> </img>
+    </div>
+
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <img class="img-fluid" style="width: 200px; height:150px;" src="easy-start.jpg" alt="easy-start"> </img><br>Easy to Start<br><i>Fast setup</i>
+            </div>
+            <div class="col">
+                <img class="img-fluid" style="width: 200px; height:150px;" src="dedicated-server.jpg" alt="dedicated-server"> </img><br>Dedicated Servers<br><i>Constant uptime</i>
+            </div>
+            <div class="col">
+                <img class="img-fluid" style="width: 200px; height:150px;" src="fast-changes.jpg" alt="fast-changes"> </img><br>Fast Changes<br><i>Quick and easy to updates</i>
+            </div>
+            <div class="col">
+                <img class="img-fluid" style="width: 200px; height:150px;" src="secure-lock.jpg" alt="secure-lock"></img><br>Secure Website<br><i>Reliable</i>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+
+    <div class="container text-center bg-secondary" >
+        <h3>Host Your Website Today!</h3>
+        <br>
+        <div class="row">
+            <div class="col-4 btn">
+                <button class="btn-success" type="button" onclick="location.href='/registration';">Sign up</button>
+            </div>
+            <div class="col-4">
+                <button class="btn-info" type="button" onclick="location.href='/plans';">Browse Plans</button>
+            </div>
+            <div class="col-4">
+                <button class="btn-primary" type="button" onclick="location.href='/login';">Login</button>
+            </div>
+        </div>
+           <br>
+    </div>
+    
+ 
+    <br>
+
+
+  {{>footer}}
+
+
+</div>
+    
+
+
+</body>
+</html>
+
+
+
+
+{{!-- C:\Users\Kazvin\Desktop\Web322\web322-kazvin\static\ --}}
