@@ -1,5 +1,5 @@
 # WebHosting-Final
-Code for the Web322 assignments 3-5. 
+
 Javascript, HTML, CSS, Bootstrap, Node.js, Express.js, Handlebars.js, multer.js, MongoDB
 
 This is hosted on Heroku
